@@ -1,8 +1,18 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  max-width: 100%;
+  width: 100vw;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
 }
 
 .logo {
@@ -37,6 +47,19 @@
   padding: 2em;
 }
 
+.contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.contact__iframe {
+  width: 35em;
+}
+
 .read-the-docs {
   color: #888;
 }
+
+
