@@ -2,7 +2,12 @@ import { Link } from 'react-router-dom';
 import './Header.module.css';
 import styles from './Header.module.css';
 
-export function Header({darkMode, toggleDarkMode}) {
+interface HeaderProps {
+    darkMode: boolean;
+    toggleDarkMode: () => void;
+}
+
+export function Header({darkMode, toggleDarkMode}: HeaderProps) {
   return (
       <header>
           <nav>
