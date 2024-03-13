@@ -1,14 +1,12 @@
 .main {
-
+    margin-bottom: 2em;
 }
-
 .mainSection {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
     background-size: 20px 20px;
     height: 90vh;
 }
@@ -44,11 +42,9 @@
 }
 
 .contactButton {
-    background: #3cb371;
+    background: #5CA987;
     color: white;
     font-family: inherit;
-    padding: 0.5em;
-    padding-left: 1.2em;
     font-size: 18px;
     font-weight: 600;
     border-radius: 1em;
@@ -60,7 +56,7 @@
     overflow: hidden;
     position: relative;
     height: 3em;
-    padding-right: 3.5em;
+    padding: 0.5em 3.5em 0.5em 1.2em;
 }
 
 .iconButton {
@@ -72,19 +68,18 @@
     height: 2.4em;
     width: 2.4em;
     border-radius: 1.2em;
-    box-shadow: 0.15em 0.15em 0.8em 0.3em #32cd32;
     right: 0.4em;
     transition: all 0.3s;
 }
 
 .contactButton:hover {
     transform: translate(-0.05em, -0.05em);
-    box-shadow: 0.2em 0.2em #228b22;
+    box-shadow: 0.2em 0.2em #5CA987;
 }
 
 .contactButton:active {
     transform: translate(0.05em, 0.05em);
-    box-shadow: 0.1em 0.1em #228b22;
+    box-shadow: 0.1em 0.1em #5CA987;
 }
 
 @media (max-width: 968px) {

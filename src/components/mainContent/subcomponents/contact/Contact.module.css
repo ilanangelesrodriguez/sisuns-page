@@ -13,6 +13,8 @@
 
 @media (max-width: 968px) {
     .contactIframe {
-        width: 90vw;
+        width: 85vw;
+        height: 20em;
+        margin-bottom: 2em;
     }
 }

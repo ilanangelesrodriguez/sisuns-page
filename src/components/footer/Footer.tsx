@@ -23,8 +23,6 @@ export function Footer() {
                           <h4>Encuentranos</h4>
                           <p>Av. Pacífico 508 - Nuevo Chimbote</p>
                           <p>Central Telefónica.: (51)-43-310445 Chimbote - Ancash - Perú.</p>
-                          <p>Transparencia Universitaria: transparencia@uns.edu.pe</p>
-
                       </div>
                       <div className={styles.footerCol}>
                           <h4>Transparencia</h4>

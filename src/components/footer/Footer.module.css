@@ -35,12 +35,12 @@
 }
 
 .footerList a {
-    color: #666;
+    color: white;
     text-decoration: none;
 }
 
 .footerList a:hover {
-    color: #000;
+    color: #666;
 }
 
 .footerSocial {

@@ -25,10 +25,14 @@ export function Header({darkMode, toggleDarkMode}: HeaderProps) {
                   </div>
 
                   <div className={styles.headerDiv}>
-                      <li><Link to="/">Inicio</Link></li>
-                      <li><Link to="/about">Sobre Nosotros</Link></li>
-                      <li><Link to="/contact">Contacto</Link></li>
-                      <li><Link to="/login">Login</Link></li>
+                      <li className={styles.headerNo}><Link to="/">Inicio</Link></li>
+                      <li className={styles.headerNo}><Link to="/about">Sobre Nosotros</Link></li>
+                      <li className={styles.headerNo}><Link to="/contact">Contacto</Link></li>
+                      <li>
+                          <Link to="/login">
+                              <button className={styles.button}>Entrar</button>
+                          </Link>
+                      </li>
                       <li>
                           <label className={styles.switch} htmlFor="switch">
                               <input id="switch" className={styles.circle} type="checkbox" checked={darkMode}
