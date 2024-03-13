@@ -1,6 +1,5 @@
 import './Footer.module.css';
 import styles from './Footer.module.css';
-import {Form} from "../form/Form.tsx";
 
 export function Footer() {
   return (
