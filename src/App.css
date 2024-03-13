@@ -1,8 +1,37 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  max-width: 100%;
+  width: 100vw;
+
+}
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+
+.light-mode {
+  background-color: #fff;
+  color: #333 !important;
+
+  background: linear-gradient(90deg, #2BB8AD, #5CA987, #ccefcc);
+  background-size: 300% 300%;
+  animation: gradient 4s alternate infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
 }
 
 .logo {
@@ -37,6 +66,19 @@
   padding: 2em;
 }
 
+.contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.contact__iframe {
+  width: 35em;
+}
+
 .read-the-docs {
   color: #888;
 }
+
+

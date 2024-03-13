@@ -1,0 +1,66 @@
+.loginFormPage {
+    margin: 2em;
+    padding: 2em;
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
+}
+
+.loginForm {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7em;
+}
+
+.loginInput {
+    color: black;
+    padding: 10px;
+    outline: none;
+    background: #e8e8e8;
+    box-shadow: 2px 2px 3px #c8c8c8,
+    -1px -1px 3px #ffffff;
+    border: none;
+    border-radius: 10px;
+    transition: all .5s;
+}
+
+.loginInput:focus {
+    background: #e8e8e8;
+    box-shadow: inset 5px 5px 17px #c8c8c8,
+    inset -5px -5px 17px #ffffff;
+}
+
+.button {
+    background: linear-gradient(-45deg, #2f87b7, #5ca99d, #2FB7AB,#5CA987);
+    background-size: 800% 400%;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    transition: all .5s ease-in-out;
+    animation: gradient 10s infinite cubic-bezier(.62, .28, .23, .99) both;
+}
+
+.button:hover {
+    animation: gradient 3s infinite;
+    transform: scale(1.05);
+}
+
+.button:active {
+    animation: gradient 3s infinite;
+    transform: scale(0.8);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
