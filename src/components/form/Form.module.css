@@ -140,7 +140,7 @@
     box-shadow: 0.05em 0.05em #5CA987;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 768px) {
     .form {
         width: 100%;
     }
