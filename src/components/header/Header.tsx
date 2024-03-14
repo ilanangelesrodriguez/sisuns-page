@@ -25,9 +25,15 @@ export function Header({darkMode, toggleDarkMode}: HeaderProps) {
                   </div>
 
                   <div className={styles.headerDiv}>
-                      <li className={styles.headerNo}><Link to="/">Inicio</Link></li>
-                      <li className={styles.headerNo}><Link to="/about">Sobre Nosotros</Link></li>
-                      <li className={styles.headerNo}><Link to="/contact">Contacto</Link></li>
+                      <li className={styles.headerItem}>
+                          <Link to="/" className={darkMode ? styles.linkItemDark : styles.linkItem}>Inicio</Link>
+                      </li>
+                      <li className={styles.headerItem}>
+                          <Link to="/about" className={darkMode ? styles.linkItemDark : styles.linkItem}>Sobre Nosotros</Link>
+                      </li>
+                      <li className={styles.headerItem}>
+                          <Link to="/contact" className={darkMode ? styles.linkItemDark : styles.linkItem}>Contacto</Link>
+                      </li>
                       <li>
                           <Link to="/login">
                               <button className={styles.button}>Entrar</button>

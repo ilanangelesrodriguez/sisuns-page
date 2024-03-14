@@ -33,6 +33,22 @@ header {
     color: #61635E;
 }
 
+.headerItem {
+    color: #000;
+}
+
+.linkItem {
+    /* Estilo para el modo claro */
+    color: #000;
+    text-decoration: none;
+}
+
+.linkItemDark {
+    /* Estilo para el modo oscuro */
+    color: #fff;
+    text-decoration: none;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -50,7 +66,6 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #050505;
     text-decoration: none;
 }
 
@@ -163,14 +178,14 @@ nav ul li a:hover {
     background: white;
     z-index: 1;
     box-shadow: 11px 0 0 var(--shadow-color),
-    10px 0 0 var(--shadow-color), -11px 0px 0px var(--shadow-color),
-    -10.3px 0px 0px var(--shadow-color), 0px -11px 0px var(--shadow-color),
-    0px -10.3px 0px var(--shadow-color), 0px 11px 0px var(--shadow-color),
-    0px 10.3px 0px var(--shadow-color), 8px 8px 0px var(--shadow-color),
-    7.3px 7.3px 0px var(--shadow-color), 8px -8px 0px var(--shadow-color),
-    7.3px -7.3px 0px var(--shadow-color), -8px -8px 0px var(--shadow-color),
-    -7.3px -7.3px 0px var(--shadow-color), -8px 8px 0px var(--shadow-color),
-    -7.3px 7.3px 0px var(--shadow-color);
+    10px 0 0 var(--shadow-color), -11px 0 0 var(--shadow-color),
+    -10.3px 0 0 var(--shadow-color), 0 -11px 0 var(--shadow-color),
+    0 -10.3px 0 var(--shadow-color), 0 11px 0 var(--shadow-color),
+    0 10.3px 0 var(--shadow-color), 8px 8px 0 var(--shadow-color),
+    7.3px 7.3px 0 var(--shadow-color), 8px -8px 0 var(--shadow-color),
+    7.3px -7.3px 0 var(--shadow-color), -8px -8px 0 var(--shadow-color),
+    -7.3px -7.3px 0 var(--shadow-color), -8px 8px 0 var(--shadow-color),
+    -7.3px 7.3px 0 var(--shadow-color);
 }
 
 .switch .sun .dot::before {
@@ -235,7 +250,7 @@ nav ul li a:hover {
         display: none;
     }
 
-    .headerNo {
+    .headerItem {
         display: none;
     }
 }

@@ -3,6 +3,7 @@
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.068);
     border-color: transparent;
     width: 45vw;
+    height: 20em;
 }
 
 .contactIframe:hover {
@@ -11,7 +12,7 @@
     0 24px 46px rgba(220, 233, 255, 0.48);
 }
 
-@media (max-width: 968px) {
+@media (max-width: 768px) {
     .contactIframe {
         width: 85vw;
         height: 20em;
