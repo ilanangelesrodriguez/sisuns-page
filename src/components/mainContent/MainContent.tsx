@@ -9,12 +9,16 @@ export function MainContent() {
         <main className={styles.main}>
             <section className={styles.mainSection}>
                 <div className={styles.mainSectionDescription}>
-                    <p className={styles.mainSectionDescriptionLabel}>Semillero de investigación</p>
-                    <h1 className={styles.mainSectionDescriptionH1}>Construyendo el futuro a través de la
-                        investigación.</h1>
-                    <p>Únete a nuestro semillero de ingeniería de sistemas y sé parte de un equipo apasionado por crear
-                        soluciones innovadoras para los desafíos del mundo actual.</p>
-
+                    <p className={styles.mainSectionDescriptionLabel}>
+                        Semillero de investigación
+                    </p>
+                    <h1 className={styles.mainSectionDescriptionH1}>
+                        Construyendo el futuro a través de la investigación
+                    </h1>
+                    <p>
+                        Únete a nuestro semillero de ingeniería de sistemas y sé parte de un equipo apasionado por crear
+                        soluciones innovadoras para los desafíos del mundo actual.
+                    </p>
                     <button className={styles.contactButton}>
                         Únete Ahora
                         <div className={styles.iconButton}>
@@ -26,7 +30,6 @@ export function MainContent() {
                             </svg>
                         </div>
                     </button>
-
                 </div>
                 <div>
                     <img src={research} className={styles.imgResearch} alt={"Research"}/>

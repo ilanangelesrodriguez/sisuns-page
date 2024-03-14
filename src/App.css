@@ -24,7 +24,6 @@
   background: linear-gradient(90deg, #2BB8AD, #5CA987, #ccefcc);
   background-size: 300% 300%;
   animation: gradient 4s alternate infinite;
-  position: absolute;
   top: 0;
   left: 0;
 }

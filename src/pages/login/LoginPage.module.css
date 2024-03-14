@@ -1,5 +1,6 @@
 .loginFormPage {
-    margin: 2em;
+    width: 60vw;
+    margin: 3em auto;
     padding: 2em;
     box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
 }
