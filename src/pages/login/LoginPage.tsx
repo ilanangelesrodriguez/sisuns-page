@@ -1,39 +1,35 @@
-import {useEffect, useState} from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LoginPage.module.css';
-
+import {useAuth} from "./auth/AuthContext.tsx";
 
 export function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    // Obtén el estado de autenticación del almacenamiento local
-    const [isAuthenticated, setIsAuthenticated] = useState(() => {
-        return localStorage.getItem('isAuthenticated') === 'true';
-    });
+    const { login, isAuthenticated } = useAuth();
 
-    // Verifica si el usuario está autenticado cuando el componente se monta
     useEffect(() => {
         if (isAuthenticated) {
             navigate('/dashboard');
         }
     }, [isAuthenticated, navigate]);
 
-
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
+        setLoading(true);
 
         if (username === 'usuario' && password === 'contraseña') {
-            // Almacena el estado de autenticación en el almacenamiento local del navegador
-            localStorage.setItem('isAuthenticated', 'true');
-            setIsAuthenticated(true);
+            login();
             navigate('/dashboard');
         } else {
-            // Si la validación falla, establece un mensaje de error
             setError('Nombre de usuario o contraseña incorrectos');
         }
+
+        setLoading(false);
     };
 
     return (
@@ -61,9 +57,10 @@ export function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 {error && <p>{error}</p>}
-                <button className={styles.button} type="submit">Ingresar</button>
+                <button className={styles.button} type="submit" disabled={loading}>
+                    {loading ? 'Cargando...' : 'Ingresar'}
+                </button>
             </form>
-
         </div>
-    )
+    );
 }
