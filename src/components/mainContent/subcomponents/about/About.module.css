@@ -1,4 +1,4 @@
-.card {
+/*.card {
     backdrop-filter: blur(18px) saturate(132%);
     -webkit-backdrop-filter: blur(18px) saturate(132%);
     background-color: rgba(255, 255, 255, 0.24);
@@ -6,10 +6,89 @@
     padding: 1.5em;
     border: 1px solid rgba(209, 213, 219, 0.3);
     border-radius: 1em;
+}*/
+
+.card {
+    margin: 2em 5em;
+    padding: 1.5em;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    border-radius: 1em;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: -5px -5px
+}
+
+
+
+
+/*.aboutSection {
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}*/
+
+.aboutSectionDiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutSectionContent {
+    width: 45vw;
+}
+
+.aboutTitle {
+    font-size: 2em;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.aboutDescription, .aboutMission {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.aboutAddress {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.addressItem {
+    display: flex;
+    align-items: center;
+    font-size: small;
+    font-weight: bold;
+    text-align: start;
+    margin: auto;
+}
+
+.addressIcon {
+    width: 3em;
+    margin-right: 0.8em;
+}
+
+.imgAbout {
+    max-width: 75vw;
+    width: 25vw;
 }
 
 @media (max-width: 968px) {
     .card {
         margin: 2em;
+    }
+    .aboutAddress {
+        width: 53vw;
+    }
+    .aboutSectionContent {
+        width: auto;
+    }
+    .imgAbout {
+        width: 70vw;
     }
 }
