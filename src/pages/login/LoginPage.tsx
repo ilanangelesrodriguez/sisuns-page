@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LoginPage.module.css';
+
 
 export function LoginPage() {
     const [username, setUsername] = useState('');
@@ -8,12 +9,26 @@ export function LoginPage() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+    // Obtén el estado de autenticación del almacenamiento local
+    const [isAuthenticated, setIsAuthenticated] = useState(() => {
+        return localStorage.getItem('isAuthenticated') === 'true';
+    });
+
+    // Verifica si el usuario está autenticado cuando el componente se monta
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/dashboard');
+        }
+    }, [isAuthenticated, navigate]);
+
+
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
 
         if (username === 'usuario' && password === 'contraseña') {
             // Almacena el estado de autenticación en el almacenamiento local del navegador
             localStorage.setItem('isAuthenticated', 'true');
+            setIsAuthenticated(true);
             navigate('/dashboard');
         } else {
             // Si la validación falla, establece un mensaje de error
