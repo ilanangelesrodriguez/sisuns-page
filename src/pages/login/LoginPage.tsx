@@ -1,19 +1,25 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LoginPage.module.css';
-import {useAuthApi} from "../../hooks/UseAuthApi";
+import {useUserLogin} from "../../hooks/UseUserLogin";
 import {useAuth} from "../../hooks/useAuth";
+import { NetworkError } from '../error/NetworkError';
+import {ERRORS} from "../../models/ConstantsErrors";
 
 export function LoginPage() {
     const navigate = useNavigate();
     const { isAuthenticated } = useAuth();
-    const { email, setEmail, password, setPassword, error, loading, handleSubmit } = useAuthApi('http://localhost:8080/usuarios');
+    const { email, setEmail, password, setPassword, error, loading, handleSubmit } = useUserLogin('http://localhost:8080/usuarios');
 
     useEffect(() => {
         if (isAuthenticated) {
             navigate('/dashboard');
         }
     }, [isAuthenticated, navigate]);
+
+    if (error === ERRORS.API_FAILURE) {
+        return <NetworkError />;
+    }
 
     return (
         <div className={styles.loginFormPage}>
@@ -23,6 +29,7 @@ export function LoginPage() {
                 <label htmlFor="email">Correo</label>
                 <input
                     className={styles.loginInput}
+                    required={true}
                     type="text"
                     id="email"
                     name="Usuario"
@@ -33,6 +40,7 @@ export function LoginPage() {
                 <label htmlFor="password">Contraseña</label>
                 <input
                     className={styles.loginInput}
+                    required={true}
                     type="password"
                     id="password"
                     name="Contraseña"

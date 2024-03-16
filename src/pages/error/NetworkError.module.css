@@ -1,0 +1,15 @@
+.networkError{
+    margin-bottom: 5em;
+}
+.errorServerImg {
+    width: 40vw;
+}
+
+@media (max-width: 768px) {
+    .networkError{
+        margin: 5em 1em;
+    }
+    .errorServerImg {
+        width: 90vw;
+    }
+}

@@ -11,7 +11,7 @@ export function useApi(url: string) {
         if (response.ok) {
           return response.json();
         } else {
-          throw new Error('Error fetching data');
+          throw new Error('Error al obtener datos');
         }
       })
       .then(data => {

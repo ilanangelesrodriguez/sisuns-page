@@ -6,7 +6,7 @@ interface LayoutProps {
     children: ReactNode;
     darkMode: boolean;
     toggleDarkMode: () => void;
-    showFullHeader: boolean; // Hacer showFullHeader opcional
+    showFullHeader: boolean;
 }
 
 export function Layout({ children, darkMode, toggleDarkMode, showFullHeader}: LayoutProps) {
