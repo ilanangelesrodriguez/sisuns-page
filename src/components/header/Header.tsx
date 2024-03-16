@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import './Header.module.css';
 import styles from './Header.module.css';
 import sisunsLogo from '/sisuns.svg';
+import {ToggleButton} from "../toggleButton/ToggleButton";
 
 
 interface HeaderProps {
@@ -26,22 +27,17 @@ export function Header({darkMode, toggleDarkMode, showFullHeader}: HeaderProps) 
                         </li>
                     </div>
 
-
                     <div className={styles.headerDiv}>
-
                         {showFullHeader && (
                             <>
                                 <li className={styles.headerItem}>
-                                    <Link to="/"
-                                          className={darkMode ? styles.linkItemDark : styles.linkItem}>Inicio</Link>
+                                    <Link to="/" className={darkMode ? styles.linkItemDark : styles.linkItem}>Inicio</Link>
                                 </li>
                                 <li className={styles.headerItem}>
-                                    <Link to="/about" className={darkMode ? styles.linkItemDark : styles.linkItem}>Sobre
-                                        Nosotros</Link>
+                                    <Link to="/about" className={darkMode ? styles.linkItemDark : styles.linkItem}>Sobre Nosotros</Link>
                                 </li>
                                 <li className={styles.headerItem}>
-                                    <Link to="/contact"
-                                          className={darkMode ? styles.linkItemDark : styles.linkItem}>Contacto</Link>
+                                    <Link to="/contact" className={darkMode ? styles.linkItemDark : styles.linkItem}>Contacto</Link>
                                 </li>
                                 <li>
                                     <Link to="/login">
@@ -50,20 +46,8 @@ export function Header({darkMode, toggleDarkMode, showFullHeader}: HeaderProps) 
                                 </li>
                             </>
                         )}
-
                         <li>
-                            <label className={styles.switch} htmlFor="switch">
-                                <input id="switch" className={styles.circle} type="checkbox" checked={darkMode}
-                                       onChange={toggleDarkMode}/>
-                                <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"
-                                     className={`${styles.moon} ${styles['svg']}`}>
-                                    <path
-                                        d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path>
-                                </svg>
-                                <div className={`${styles.sun} ${styles['svg']}`}>
-                                <span className={styles.dot}></span>
-                                </div>
-                            </label>
+                            <ToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
                         </li>
                     </div>
                 </ul>

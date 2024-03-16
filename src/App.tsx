@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {ReactNode, useState} from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom';
 import {MainContent} from "./components/mainContent/MainContent";
@@ -14,14 +14,24 @@ function App() {
         setDarkMode(!darkMode);
     };
 
+    const renderLayout = (path: string, children: ReactNode, showFullHeader = true) => {
+        return (
+            <Route path={path} element={
+                <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={showFullHeader}>
+                    {children}
+                </Layout>
+            } />
+        );
+    };
+
     return (
         <AuthProvider>
-            <div className={darkMode ? 'dark-mode' : 'light-mode'}>
+            <div className={darkMode ? 'light-mode' : 'dark-mode'}>
                 <Routes>
-                    <Route path="/" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={true}><MainContent /></Layout>} />
-                    <Route path="/login" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={true}><LoginPage /></Layout>} />
-                    <Route path="*" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={true}><NotFound /></Layout>} />
-                    <Route path="/dashboard" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={false}><Dashboard /></Layout>} />
+                    {renderLayout("/", <MainContent />)}
+                    {renderLayout("/login", <LoginPage />)}
+                    {renderLayout("*", <NotFound />)}
+                    {renderLayout("/dashboard", <Dashboard />, false)}
                 </Routes>
             </div>
         </AuthProvider>

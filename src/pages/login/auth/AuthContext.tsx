@@ -1,13 +1,8 @@
 import React, { createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {IUser} from "../../../interfaces/IUser";
+import {IUser} from "../../../models/IUser";
+import {IAuthContext} from "../../../models/IAuthContext";
 
-interface IAuthContext {
-    isAuthenticated: boolean;
-    login: (user: IUser) => void; // Actualiza el tipo de login para aceptar un usuario
-    logout: () => void;
-    user: IUser | null;
-}
 
 export const AuthContext = createContext<IAuthContext | undefined>(undefined);
 

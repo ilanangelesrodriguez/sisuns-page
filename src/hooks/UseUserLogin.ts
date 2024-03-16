@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useApi } from './UseApi';
 import { useAuth } from './useAuth';
-import { IUser as Usuario } from '../interfaces/IUser';
+import { IUser as Usuario } from '../models/IUser';
+import {ERRORS} from "../models/ConstantsErrors";
 
-export function useAuthApi(url: string) {
+export function useUserLogin(url: string) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -24,14 +25,15 @@ export function useAuthApi(url: string) {
             if (usuario) {
                 login(usuario);
             } else {
-                setError('Correo o contraseña incorrectos');
+                setError(ERRORS.INVALID_CREDENTIALS);
             }
         } else {
-            setError('No se pudo obtener los datos de la API');
+            setError(ERRORS.API_FAILURE);
         }
 
         setLoading(false);
     };
+
 
     return { email, setEmail, password, setPassword, error, loading, handleSubmit };
 }
