@@ -1,4 +1,4 @@
-import {Form} from "../../../form/Form.tsx";
+import {Form} from "../../../form/Form";
 import styles from "./Contact.module.css";
 
 export function Contact() {
