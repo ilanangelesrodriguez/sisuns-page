@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Dashboard.module.css';
-import {useAuth} from "../login/auth/AuthContext.tsx";
+import {useAuth} from "../../hooks/useAuth";
 
 export function Dashboard() {
     const navigate = useNavigate();
-    const { logout, isAuthenticated } = useAuth();
+    const { logout, isAuthenticated, user } = useAuth();
+
 
     useEffect(() => {
         const handleStorageChange = (event: StorageEvent) => {
@@ -13,7 +14,6 @@ export function Dashboard() {
                 navigate('/login');
             }
         };
-
         window.addEventListener('storage', handleStorageChange);
 
         return () => {
@@ -37,7 +37,8 @@ export function Dashboard() {
             <header className={styles.header}>
                 <button onClick={handleLogout}>Cerrar sesión</button>
             </header>
-            <h1>Dashboard</h1>
+            <h1>Hola, {user?.nombre}</h1>
+            <pre>{JSON.stringify(user, null, 2)}</pre>
         </div>
     )
 }

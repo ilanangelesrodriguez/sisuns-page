@@ -1,8 +1,8 @@
-import { About } from './subcomponents/about/About.tsx';
-import { Services } from './subcomponents/services/Services.tsx';
+import { About } from './subcomponents/about/About';
+import { Services } from './subcomponents/services/Services';
 import styles from "./MainContent.module.css";
-import {Contact} from "./subcomponents/contact/Contact.tsx";
-import {Home} from "./subcomponents/home/Home.tsx";
+import {Contact} from "./subcomponents/contact/Contact";
+import {Home} from "./subcomponents/home/Home";
 
 export function MainContent() {
     return (

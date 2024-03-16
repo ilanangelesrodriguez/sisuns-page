@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom';
-import {MainContent} from "./components/mainContent/MainContent.tsx";
-import {LoginPage} from "./pages/login/LoginPage.tsx";
-import {Dashboard} from "./pages/dashboard/Dashboard.tsx";
-import {NotFound} from "./pages/error/NotFound.tsx";
-import {Layout} from "./components/Layout.tsx";
-import {AuthProvider} from "./pages/login/auth/AuthContext.tsx";
+import {MainContent} from "./components/mainContent/MainContent";
+import {LoginPage} from "./pages/login/LoginPage";
+import {Dashboard} from "./pages/dashboard/Dashboard";
+import {NotFound} from "./pages/error/NotFound";
+import {Layout} from "./components/Layout";
+import {AuthProvider} from "./pages/login/auth/AuthContext";
 
 function App() {
     const [darkMode, setDarkMode] = useState(false);
@@ -18,10 +18,10 @@ function App() {
         <AuthProvider>
             <div className={darkMode ? 'dark-mode' : 'light-mode'}>
                 <Routes>
-                    <Route path="/" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode}><MainContent /></Layout>} />
-                    <Route path="/login" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode}><LoginPage /></Layout>} />
-                    <Route path="*" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode}><NotFound /></Layout>} />
-                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={true}><MainContent /></Layout>} />
+                    <Route path="/login" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={true}><LoginPage /></Layout>} />
+                    <Route path="*" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={true}><NotFound /></Layout>} />
+                    <Route path="/dashboard" element={<Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={false}><Dashboard /></Layout>} />
                 </Routes>
             </div>
         </AuthProvider>
