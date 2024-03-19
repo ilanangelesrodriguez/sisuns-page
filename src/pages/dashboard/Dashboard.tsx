@@ -35,9 +35,10 @@ export function Dashboard() {
     return (
         <div className={styles.dashboard}>
             <header className={styles.header}>
+                <h1>Hola, {user?.nombre}</h1>
                 <button onClick={handleLogout}>Cerrar sesión</button>
             </header>
-            <h1>Hola, {user?.nombre}</h1>
+
             <pre>{JSON.stringify(user, null, 2)}</pre>
         </div>
     )
