@@ -2,10 +2,19 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Dashboard.module.css';
 import {useAuth} from "../../hooks/useAuth";
+import {DFooter} from "../../components/dashboard/DFooter";
+import {DHeader} from "../../components/dashboard/header/DHeader";
+import {IHeaderProps} from "../../models/IHeaderProps";
+import {UserEditForm} from "../../components/dashboard/UserEditForm";
+import {UserDeleteForm} from "../../components/dashboard/UserDeleteForm";
+import {UserCreateForm} from "../../components/dashboard/UserCreateForm";
+import {UserTable} from "../../components/dashboard/UserTable";
 
-export function Dashboard() {
+
+
+export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderProps) {
     const navigate = useNavigate();
-    const { logout, isAuthenticated, user } = useAuth();
+    const { isAuthenticated } = useAuth();
 
 
     useEffect(() => {
@@ -21,25 +30,25 @@ export function Dashboard() {
         };
     }, [navigate]);
 
-    const handleLogout = () => {
-        logout();
-        navigate('/login');
-    };
-
     useEffect(() => {
         if (!isAuthenticated) {
             navigate('/login');
         }
     }, [isAuthenticated, navigate]);
 
-    return (
-        <div className={styles.dashboard}>
-            <header className={styles.header}>
-                <h1>Hola, {user?.nombre}</h1>
-                <button onClick={handleLogout}>Cerrar sesión</button>
-            </header>
 
-            <pre>{JSON.stringify(user, null, 2)}</pre>
-        </div>
+
+    return (
+        <>
+            <DHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={showFullHeader} />
+            <div className={styles.dashboard}>
+                <h1>Dashboard</h1>
+                <UserTable />
+                <UserEditForm  />
+                <UserDeleteForm />
+                <UserCreateForm />
+            </div>
+            <DFooter />
+        </>
     )
 }

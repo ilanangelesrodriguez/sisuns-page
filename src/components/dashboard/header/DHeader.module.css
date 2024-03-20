@@ -1,0 +1,21 @@
+.dropdown {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none;
+}
+
+.dropdown.visible {
+    display: flex;
+    flex-direction: column;
+}
+
+.svg {
+    width: 3em;
+    height: 3em;
+}

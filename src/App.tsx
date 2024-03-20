@@ -14,10 +14,10 @@ function App() {
         setDarkMode(!darkMode);
     };
 
-    const renderLayout = (path: string, children: ReactNode, showFullHeader = true) => {
+    const renderLayout = (path: string, children: ReactNode, showFooter=true, showHeader=true) => {
         return (
             <Route path={path} element={
-                <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={showFullHeader}>
+                <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFooter={showFooter} showHeader={showHeader} showFullHeader={true}>
                     {children}
                 </Layout>
             } />
@@ -31,7 +31,7 @@ function App() {
                     {renderLayout("/", <MainContent />)}
                     {renderLayout("/login", <LoginPage />)}
                     {renderLayout("*", <NotFound />)}
-                    {renderLayout("/dashboard", <Dashboard />, false)}
+                    {renderLayout("/dashboard", <Dashboard darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={false} />, false, false)}
                 </Routes>
             </div>
         </AuthProvider>

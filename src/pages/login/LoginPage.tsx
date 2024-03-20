@@ -5,6 +5,7 @@ import {useUserLogin} from "../../hooks/UseUserLogin";
 import {useAuth} from "../../hooks/useAuth";
 import { NetworkError } from '../error/NetworkError';
 import {ERRORS} from "../../models/ConstantsErrors";
+import {Loader} from "../../components/loader/Loader";
 
 export function LoginPage() {
     const navigate = useNavigate();
@@ -22,36 +23,43 @@ export function LoginPage() {
     }
 
     return (
-        <div className={styles.loginFormPage}>
-            <h1>Login</h1>
+        <>
+        { loading ? (
+                <Loader />
+            ) : (
+            <div className={styles.loginFormPage}>
+                <h1>Login</h1>
 
-            <form className={styles.loginForm} onSubmit={handleSubmit}>
-                <label htmlFor="email">Correo</label>
-                <input
-                    className={styles.loginInput}
-                    required={true}
-                    type="text"
-                    id="email"
-                    name="Usuario"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                <form className={styles.loginForm} onSubmit={handleSubmit}>
+                    <label htmlFor="email">Correo</label>
+                    <input
+                        className={styles.loginInput}
+                        required={true}
+                        type="text"
+                        id="email"
+                        name="Usuario"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-                <label htmlFor="password">Contraseña</label>
-                <input
-                    className={styles.loginInput}
-                    required={true}
-                    type="password"
-                    id="password"
-                    name="Contraseña"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                {error && <p>{error}</p>}
-                <button className={styles.button} type="submit" disabled={loading}>
-                    {loading ? 'Cargando...' : 'Ingresar'}
-                </button>
-            </form>
-        </div>
+                    <label htmlFor="password">Contraseña</label>
+                    <input
+                        className={styles.loginInput}
+                        required={true}
+                        type="password"
+                        id="password"
+                        name="Contraseña"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    {error && <p>{error}</p>}
+                    <button className={styles.button} type="submit" disabled={loading}>
+                        Ingresar
+                    </button>
+                </form>
+            </div>
+        )
+        }
+        </>
     );
 }

@@ -3,15 +3,10 @@ import './Header.module.css';
 import styles from './Header.module.css';
 import sisunsLogo from '/sisuns.svg';
 import {ToggleButton} from "../toggleButton/ToggleButton";
+import {IHeaderProps} from "../../models/IHeaderProps";
 
 
-interface HeaderProps {
-    darkMode: boolean;
-    toggleDarkMode: () => void;
-    showFullHeader: boolean;
-}
-
-export function Header({darkMode, toggleDarkMode, showFullHeader}: HeaderProps) {
+export function Header({darkMode, toggleDarkMode, showFullHeader, children}: IHeaderProps) {
     return (
         <header>
             <nav>
@@ -46,6 +41,7 @@ export function Header({darkMode, toggleDarkMode, showFullHeader}: HeaderProps) 
                                 </li>
                             </>
                         )}
+                        {children}
                         <li>
                             <ToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
                         </li>
