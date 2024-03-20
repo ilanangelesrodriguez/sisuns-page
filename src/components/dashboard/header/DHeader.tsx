@@ -1,6 +1,6 @@
 import {Header} from "../../header/Header";
 import {IHeaderProps} from "../../../models/IHeaderProps";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {useAuth} from "../../../hooks/useAuth";
 import styles from './DHeader.module.css';
 import {useNavigate} from "react-router-dom";
@@ -19,6 +19,14 @@ export function DHeader({children, darkMode, toggleDarkMode, showFullHeader}: IH
         navigate('/login');
     };
 
+    useEffect(() => {
+        if (isDropdownVisible) {
+            document.body.classList.add('no-pointer-events');
+        } else {
+            document.body.classList.remove('no-pointer-events');
+        }
+    }, [isDropdownVisible]);
+
     return (
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={showFullHeader}>
             <div onClick={toggleDropdown}>
@@ -31,7 +39,7 @@ export function DHeader({children, darkMode, toggleDarkMode, showFullHeader}: IH
                 </svg>
                 {isDropdownVisible && (
                     <>
-                        <div className={`${styles.dropdown}`}>
+                        <div className={`${styles.dropdown} ${isDropdownVisible ? styles.visible : ''}`}>
                             <p>{user?.nombre}</p>
                             <p>{user?.correo}</p>
                             <ul>
