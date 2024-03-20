@@ -1,5 +1,5 @@
 import styles from "./Main.module.css";
-import research from "../../../../assets/research.png";
+import research from "../../../assets/research.svg";
 
 export function Main() {
     return (
