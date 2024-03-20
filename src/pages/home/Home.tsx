@@ -4,6 +4,7 @@ import {About} from "./about/About";
 import {Services} from "./services/Services";
 import {Contact} from "./contact/Contact";
 import styles from "./Home.module.css";
+import {Main} from "./main/Main";
 
 export function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -19,7 +20,7 @@ export function Home() {
     return (
         isLoaded ? (
             <main className={styles.mainContent}>
-                <Home />
+                <Main />
                 <About />
                 <Services />
                 <Contact />
