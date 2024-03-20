@@ -3,11 +3,20 @@
     z-index: 1;
     top: 50px;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(73, 68, 68, 0.9);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     display: none;
+    color: white;
+}
+
+main .no-pointer-events {
+    pointer-events: none;
+}
+
+header, .dropdown {
+    pointer-events: auto;
 }
 
 .dropdown.visible {
@@ -15,7 +24,37 @@
     flex-direction: column;
 }
 
+.dropdown ul {
+    display: flex;
+    flex-direction: column;
+}
+
 .svg {
-    width: 3em;
-    height: 3em;
+    display: flex;
+    width: 2em;
+    height: 2em;
+}
+.svg:hover {
+    cursor: pointer;
+}
+.svgButton {
+    padding: 0.5em;
+}
+.svgButton:hover {
+    border: none;
+}
+.svgIcon {
+    display: flex;
+    width: 1.8em;
+    height: 1.8em;
+}
+.signOut {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto auto 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    gap: 1em;
 }

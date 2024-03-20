@@ -5,11 +5,7 @@ import {useAuth} from "../../hooks/useAuth";
 import {DFooter} from "../../components/dashboard/DFooter";
 import {DHeader} from "../../components/dashboard/header/DHeader";
 import {IHeaderProps} from "../../models/IHeaderProps";
-import {UserEditForm} from "../../components/dashboard/UserEditForm";
-import {UserDeleteForm} from "../../components/dashboard/UserDeleteForm";
-import {UserCreateForm} from "../../components/dashboard/UserCreateForm";
 import {UserTable} from "../../components/dashboard/UserTable";
-
 
 
 export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderProps) {
@@ -41,13 +37,10 @@ export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderPr
     return (
         <>
             <DHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={showFullHeader} />
-            <div className={styles.dashboard}>
+            <main className={styles.dashboard}>
                 <h1>Dashboard</h1>
                 <UserTable />
-                <UserEditForm  />
-                <UserDeleteForm />
-                <UserCreateForm />
-            </div>
+            </main>
             <DFooter />
         </>
     )

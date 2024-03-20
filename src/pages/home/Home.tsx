@@ -1,12 +1,11 @@
-import { About } from './subcomponents/about/About';
-import { Services } from './subcomponents/services/Services';
-import styles from "./MainContent.module.css";
-import {Contact} from "./subcomponents/contact/Contact";
-import {Home} from "./subcomponents/home/Home";
 import {useEffect, useState} from "react";
-import {Loader} from "../loader/Loader";
+import {Loader} from "../../components/loader/Loader";
+import {About} from "./about/About";
+import {Services} from "./services/Services";
+import {Contact} from "./contact/Contact";
+import styles from "./Home.module.css";
 
-export function MainContent() {
+export function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {

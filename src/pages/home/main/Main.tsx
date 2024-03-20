@@ -1,7 +1,7 @@
-import styles from "./Home.module.css";
+import styles from "./Main.module.css";
 import research from "../../../../assets/research.png";
 
-export function Home() {
+export function Main() {
     return (
         <section className={styles.homeSection}>
             <div className={styles.homeSectionDescription}>
