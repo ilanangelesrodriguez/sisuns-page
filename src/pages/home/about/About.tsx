@@ -1,5 +1,5 @@
 import styles from './About.module.css';
-import dataResearch from '../../../../assets/data-research.svg';
+import dataResearch from '../../../assets/data-research.svg';
 
 export function About() {
     return (
