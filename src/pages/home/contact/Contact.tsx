@@ -1,5 +1,5 @@
-import {Form} from "../../../form/Form";
 import styles from "./Contact.module.css";
+import {Form} from "../../../components/form/Form";
 
 export function Contact() {
     return (
