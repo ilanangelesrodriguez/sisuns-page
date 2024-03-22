@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useApi } from './UseApi';
 import { useAuth } from './useAuth';
 import { IUser as Usuario } from '../models/IUser';
 import {ERRORS} from "../models/ConstantsErrors";
+import { getUsers } from '../services/userService'; // Importa getUsers
 
-export function useUserLogin(url: string) {
+export function useUserLogin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -12,28 +12,25 @@ export function useUserLogin(url: string) {
 
     const { login } = useAuth();
 
-    const { data: apiData } = useApi(url);
-
-    const handleSubmit = (event: { preventDefault: () => void; }) => {
+    const handleSubmit = async (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         setLoading(true);
 
-        if (apiData) {
-            const usuarios = apiData as Usuario[];
-            const usuario = usuarios.find(usuario => usuario.correo === email && usuario.contrasena === password);
+        try {
+            const usuarios = await getUsers();
+            const usuario = usuarios.find((usuario: Usuario) => usuario.correo === email && usuario.contrasena === password);
 
             if (usuario) {
                 login(usuario);
             } else {
                 setError(ERRORS.INVALID_CREDENTIALS);
             }
-        } else {
+        } catch (error) {
             setError(ERRORS.API_FAILURE);
         }
 
         setLoading(false);
     };
-
 
     return { email, setEmail, password, setPassword, error, loading, handleSubmit };
 }

@@ -1,0 +1,23 @@
+.svgButton {
+    padding: 0.5em;
+    background-color: #b62937;
+}
+.svgButton:hover {
+    border: none;
+    background-color: #b40816;
+}
+.svgIcon {
+    display: flex;
+    width: 1.8em;
+    height: 1.8em;
+}
+.signOut {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 1em;
+    padding-right: 1em;
+    gap: 1em;
+    margin: auto;
+}

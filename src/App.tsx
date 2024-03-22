@@ -30,8 +30,8 @@ function App() {
                 <Routes>
                     {renderLayout("/", <Home />)}
                     {renderLayout("/login", <LoginPage />)}
+                    {renderLayout("/dashboard/*", <Dashboard darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={false} />, false, false)}
                     {renderLayout("*", <NotFound />)}
-                    {renderLayout("/dashboard", <Dashboard darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={false} />, false, false)}
                 </Routes>
             </div>
         </AuthProvider>

@@ -10,7 +10,7 @@ import {Loader} from "../../components/loader/Loader";
 export function LoginPage() {
     const navigate = useNavigate();
     const { isAuthenticated } = useAuth();
-    const { email, setEmail, password, setPassword, error, loading, handleSubmit } = useUserLogin('https://sisuns-server-ilanangelesrodriguez.koyeb.app/usuarios');
+    const { email, setEmail, password, setPassword, error, loading, handleSubmit } = useUserLogin();
 
     useEffect(() => {
         if (isAuthenticated) {

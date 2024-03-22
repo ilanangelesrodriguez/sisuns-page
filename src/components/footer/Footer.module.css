@@ -5,6 +5,8 @@
 }
 .footerContainer {
     margin: 0 auto;
+    padding-right: 1em;
+    padding-left: 1em;
 }
 .footerRow {
     display: flex;

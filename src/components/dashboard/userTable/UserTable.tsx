@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { IUser } from "../../models/IUser";
+import { IUser } from "../../../models/IUser";
 import styles from './UserTable.module.css';
 
 export function UserTable() {
@@ -10,7 +10,8 @@ export function UserTable() {
     const fetchData = async () => {
         try {
             const response = await fetch('https://sisuns-server-ilanangelesrodriguez.koyeb.app/usuarios');
-            const data = await response.json();
+            const dataUsers = await response.json();
+            const data = dataUsers.filter((user: IUser) => user.rol.nombre !== 'administrador');
             setUsers(data);
         } catch (error) {
             console.error('Error al obtener los datos:', error);
