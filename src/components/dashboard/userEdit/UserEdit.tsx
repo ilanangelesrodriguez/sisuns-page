@@ -1,19 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import {useUserUpdate} from "../../../hooks/useUserUpdate";
+import { useParams } from 'react-router-dom';
+import { useUserUpdate } from '../../../hooks/useUserUpdate';
 import { IUser } from '../../../models/IUser';
-import {Loader} from "../../loader/Loader";
+import { Loader } from '../../loader/Loader';
 import styles from "./UserEdit.module.css";
+import { getUsers } from '../../../services/userService';
+import {useAuth} from "../../../hooks/useAuth";
 
 export function UserEdit() {
-    const { user, handleUpdate, loading, error } = useUserUpdate();
+    const userId = Number(useParams().userId);
+    const { handleUpdate, loading, error } = useUserUpdate(userId);
     const [updatedUser, setUpdatedUser] = useState<IUser | null>(null);
     const [showPassword, setShowPassword] = useState(false);
+    const { user: authenticatedUser } = useAuth();
 
     useEffect(() => {
-        if (user) {
-            setUpdatedUser({...user});
-        }
-    }, [user]);
+        const fetchUser = async () => {
+            if (userId) {
+                const users = await getUsers();
+                const user = users.find((user: IUser) => user.id === Number(userId));
+                if (user) {
+                    setUpdatedUser({...user});
+                }
+            } else if (authenticatedUser) {
+                setUpdatedUser({...authenticatedUser});
+            }
+        };
+        fetchUser();
+    }, [userId, authenticatedUser]);
+
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (updatedUser) {

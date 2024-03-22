@@ -6,10 +6,13 @@ import styles from './DHeader.module.css';
 import {LogoutButton} from "../logoutButton/LogoutButton";
 import {PopUpUser} from "../popupUser/PopUpUser";
 import {OPTIONS} from "./Options";
+import {useNavigate} from "react-router-dom";
+import {ROLES} from "../../../models/Roles";
 
-export function DHeader({children, darkMode, toggleDarkMode, showFullHeader, setSelectedOption}: IHeaderProps & {setSelectedOption: (option: string | null) => void}) {
+export function DHeader({children, darkMode, toggleDarkMode, showFullHeader}: IHeaderProps) {
     const { user } = useAuth();
     const [isDropdownVisible, setDropdownVisible] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={showFullHeader}>
@@ -18,16 +21,16 @@ export function DHeader({children, darkMode, toggleDarkMode, showFullHeader, set
 
                 {isDropdownVisible && (
                     <div className={`${styles.dropdown} ${isDropdownVisible ? styles.visible : ''}`}>
-                        <div className={`${styles.dropdownDiv} ${styles.dropdownUser}`} onClick={() => setSelectedOption(OPTIONS.CONFIGURACION)}>
+                        <div className={`${styles.dropdownDiv} ${styles.dropdownUser}`} onClick={() => {navigate('configuration');}}>
                             <p>{user?.nombre}</p>
                             <p className={styles.dropdownUserEmail}>{user?.correo}</p>
                         </div>
 
                         <ul className={`${styles.dropdownDiv} ${styles.dropdownOptions}`}>
-                            <li onClick={() => setSelectedOption(OPTIONS.CONFIGURACION)}>{OPTIONS.CONFIGURACION}</li>
-                            {user?.rol?.nombre === 'administrador' &&
-                                <li onClick={() => setSelectedOption(OPTIONS.GESTION_USUARIOS)}>{OPTIONS.GESTION_USUARIOS}</li>}
-                            <li onClick={() => setSelectedOption(OPTIONS.PREGUNTAS_FRECUENTES)}>{OPTIONS.PREGUNTAS_FRECUENTES}</li>
+                            <li onClick={() => {navigate('configuration');}}>{OPTIONS.CONFIGURACION}</li>
+                            {user?.rol?.nombre === ROLES.ADMINISTRADOR &&
+                                <li onClick={() => {navigate('gestion-usuarios');}}>{OPTIONS.GESTION_USUARIOS}</li>}
+                            <li onClick={() => {navigate('frequent-questions');}}>{OPTIONS.PREGUNTAS_FRECUENTES}</li>
                         </ul>
                         <LogoutButton/>
                     </div>
