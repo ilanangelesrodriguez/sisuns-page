@@ -12,7 +12,7 @@ import {OPTIONS} from "../../components/dashboard/header/Options";
 
 export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderProps) {
     const navigate = useNavigate();
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, user } = useAuth();
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
     useEffect(() => {
@@ -44,7 +44,7 @@ export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderPr
                             <main className={styles.dashboardMain}>
                                 <h1>Dashboard</h1>
                                 {selectedOption === OPTIONS.CONFIGURACION && <UserEdit />}
-                                {selectedOption === OPTIONS.GESTION_USUARIOS && <UserTable />}
+                                {selectedOption === OPTIONS.GESTION_USUARIOS && user?.rol?.nombre === 'administrador' && <UserTable />}
                             </main>
                         </>
                     }/>

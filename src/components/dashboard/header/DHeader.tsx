@@ -18,14 +18,15 @@ export function DHeader({children, darkMode, toggleDarkMode, showFullHeader, set
 
                 {isDropdownVisible && (
                     <div className={`${styles.dropdown} ${isDropdownVisible ? styles.visible : ''}`}>
-                        <div className={`${styles.dropdownDiv} ${styles.dropdownUser}`}>
+                        <div className={`${styles.dropdownDiv} ${styles.dropdownUser}`} onClick={() => setSelectedOption(OPTIONS.CONFIGURACION)}>
                             <p>{user?.nombre}</p>
                             <p className={styles.dropdownUserEmail}>{user?.correo}</p>
                         </div>
 
                         <ul className={`${styles.dropdownDiv} ${styles.dropdownOptions}`}>
                             <li onClick={() => setSelectedOption(OPTIONS.CONFIGURACION)}>{OPTIONS.CONFIGURACION}</li>
-                            <li onClick={() => setSelectedOption(OPTIONS.GESTION_USUARIOS)}>{OPTIONS.GESTION_USUARIOS}</li>
+                            {user?.rol?.nombre === 'administrador' &&
+                                <li onClick={() => setSelectedOption(OPTIONS.GESTION_USUARIOS)}>{OPTIONS.GESTION_USUARIOS}</li>}
                             <li onClick={() => setSelectedOption(OPTIONS.PREGUNTAS_FRECUENTES)}>{OPTIONS.PREGUNTAS_FRECUENTES}</li>
                         </ul>
                         <LogoutButton/>
