@@ -1,9 +1,9 @@
-import {Rol} from "./IRol";
+import {IRol} from "./IRol";
 
 export interface IUser {
-    id: string;
+    id: number;
     nombre: string;
     correo: string;
     contrasena: string;
-    rol: Rol;
+    rol: IRol;
 }

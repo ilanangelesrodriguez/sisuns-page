@@ -1,12 +1,19 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import styles from './Dashboard.module.css';
 import {useAuth} from "../../hooks/useAuth";
+import {DFooter} from "../../components/dashboard/footer/DFooter";
+import {DHeader} from "../../components/dashboard/header/DHeader";
+import {IHeaderProps} from "../../models/IHeaderProps";
+import {UserTable} from "../../components/dashboard/userTable/UserTable";
+import {UserEdit} from "../../components/dashboard/userEdit/UserEdit";
+import {NotFound} from "../error/NotFound";
+import {OPTIONS} from "../../components/dashboard/header/Options";
 
-export function Dashboard() {
+export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderProps) {
     const navigate = useNavigate();
-    const { logout, isAuthenticated, user } = useAuth();
-
+    const { isAuthenticated } = useAuth();
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
     useEffect(() => {
         const handleStorageChange = (event: StorageEvent) => {
@@ -21,11 +28,6 @@ export function Dashboard() {
         };
     }, [navigate]);
 
-    const handleLogout = () => {
-        logout();
-        navigate('/login');
-    };
-
     useEffect(() => {
         if (!isAuthenticated) {
             navigate('/login');
@@ -33,12 +35,23 @@ export function Dashboard() {
     }, [isAuthenticated, navigate]);
 
     return (
-        <div className={styles.dashboard}>
-            <header className={styles.header}>
-                <button onClick={handleLogout}>Cerrar sesión</button>
-            </header>
-            <h1>Hola, {user?.nombre}</h1>
-            <pre>{JSON.stringify(user, null, 2)}</pre>
-        </div>
+        <>
+            <DHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={showFullHeader} setSelectedOption={setSelectedOption} />
+            <div className={styles.dashboard}>
+                <Routes>
+                    <Route path="/" element={
+                        <>
+                            <main className={styles.dashboardMain}>
+                                <h1>Dashboard</h1>
+                                {selectedOption === OPTIONS.CONFIGURACION && <UserEdit />}
+                                {selectedOption === OPTIONS.GESTION_USUARIOS && <UserTable />}
+                            </main>
+                        </>
+                    }/>
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </div>
+            <DFooter />
+        </>
     )
 }

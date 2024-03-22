@@ -17,8 +17,8 @@
 
 .astronaut {
     margin: auto;
-    width: 250px;
-    height: 300px;
+    width: 230px;
+    height: 280px;
     z-index: 11;
     top: calc(50% - 150px);
     left: calc(50% - 125px);

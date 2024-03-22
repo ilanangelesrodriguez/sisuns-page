@@ -1,0 +1,55 @@
+.action {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6em;
+}
+.edit {
+    background-color: #2BB8AD;
+}
+.delete {
+    background-color: #b62937;
+}
+.delete:hover {
+    background-color: #b40816;
+}
+.deleteSelected {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.table {
+    margin: auto;
+}
+.svgButton {
+    padding: 0.5em;
+}
+.svgButton:hover {
+    border: none;
+}
+.svgIcon {
+    display: flex;
+    width: 1.8em;
+    height: 1.8em;
+}
+.title {
+    font-size: x-large;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.add {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto auto 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    gap: 1em;
+}
+
+
+@media (max-width: 768px) {
+    .disabled {
+        display: none;
+    }
+}

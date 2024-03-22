@@ -1,19 +1,21 @@
-.dashboard {
-    height: 100vh;
-}
 h1 {
     margin: 0;
 }
 .dashboard {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dashboardMain {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     padding: 2em;
     box-sizing: border-box;
 }
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -23,7 +25,6 @@ h1 {
     box-sizing: border-box;
     border-bottom: 1px solid #ddd;
 }
-
 button {
     padding: 0.5em 1em;
     border: none;
@@ -33,7 +34,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 button:hover {
     background-color: #5CA987;
 }
