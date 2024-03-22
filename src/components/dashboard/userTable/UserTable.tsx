@@ -1,16 +1,29 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { IUser } from "../../../models/IUser";
 import styles from './UserTable.module.css';
+import { getUsers, deleteUser } from '../../../services/userService';
+import { ConfirmModal } from './confirmModal/ConfirmModal';
+import {EditButton} from "./editButton/EditButton";
+import {DeleteButton} from "./deleteButton/DeleteButton";
 
 export function UserTable() {
     const [users, setUsers] = useState<IUser[]>([]);
     const [selectedUsers, setSelectedUsers] = useState<IUser[]>([]);
     const [selectAll, setSelectAll] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [userToDelete, setUserToDelete] = useState<number | null>(null);
+
+    const navigate = useNavigate();
+
+    const handleEditUser = (userId: number) => {
+        console.log(`Navigating to edit user with ID: ${userId}`);
+        navigate(`edit-user/${userId}`);
+    };
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://sisuns-server-ilanangelesrodriguez.koyeb.app/usuarios');
-            const dataUsers = await response.json();
+            const dataUsers = await getUsers();
             const data = dataUsers.filter((user: IUser) => user.rol.nombre !== 'administrador');
             setUsers(data);
         } catch (error) {
@@ -50,9 +63,7 @@ export function UserTable() {
     const handleDeleteSelectedUsers = async () => {
         try {
             for (const user of selectedUsers) {
-                await fetch(`https://sisuns-server-ilanangelesrodriguez.koyeb.app/usuarios/${user.id}`, {
-                    method: 'DELETE',
-                });
+                await deleteUser(user.id);
             }
             setUsers(users.filter(user => !selectedUsers.includes(user)));
             setSelectedUsers([]);
@@ -61,14 +72,20 @@ export function UserTable() {
         }
     };
 
-    const handleDeleteUser = async (userId: number) => {
+    const handleDeleteUser = (userId: number) => {
+        setUserToDelete(userId);
+        setModalOpen(true);
+    };
+
+    const handleConfirmDelete = async () => {
+        if (userToDelete === null) return;
         try {
-            await fetch(`https://sisuns-server-ilanangelesrodriguez.koyeb.app/usuarios/${userId}`, {
-                method: 'DELETE',
-            });
-            setUsers(users.filter(user => user.id !== userId));
+            await deleteUser(userToDelete);
+            setUsers(users.filter(user => user.id !== userToDelete));
         } catch (error) {
             console.error('Error al eliminar usuario:', error);
+        } finally {
+            setModalOpen(false);
         }
     };
 
@@ -84,7 +101,7 @@ export function UserTable() {
             <table className={styles.table}>
                 <thead>
                 <tr>
-                    <th><input type="checkbox" onChange={handleSelectAll} checked={selectAll}/></th>
+                    <th><input className={styles.checkbox} type="checkbox" onChange={handleSelectAll} checked={selectAll}/></th>
                     <th>Nombre</th>
                     <th className={styles.disabled}>Correo</th>
                     <th className={styles.disabled}>Rol</th>
@@ -94,25 +111,13 @@ export function UserTable() {
                 <tbody>
                 {users && users.map((user) => (
                     <tr key={user.id}>
-                        <td><input type="checkbox" onChange={() => handleSelectUser(user)} checked={selectedUsers.includes(user)}/></td>
+                        <td><input className={styles.checkbox} type="checkbox" onChange={() => handleSelectUser(user)} checked={selectedUsers.includes(user)}/></td>
                         <td>{user.nombre}</td>
                         <td className={styles.disabled}>{user.correo}</td>
                         <td className={styles.disabled}>{user.rol.nombre}</td>
                         <td className={styles.action}>
-                            <button className={`${styles.svgButton} ${styles.edit}`}>
-                                <svg className={styles.svgIcon} xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24">
-                                    <g fill="none" stroke="currentColor">
-                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1l1-4l9.5-9.5z"/>
-                                    </g>
-                                </svg>
-                            </button>
-                            <button className={`${styles.svgButton} ${styles.delete}`} onClick={() => handleDeleteUser(user.id)}>
-                                <svg className={styles.svgIcon} xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 26 26">
-                                    <path fill="currentColor"
-                                          d="M11.5-.031c-1.958 0-3.531 1.627-3.531 3.594V4H4c-.551 0-1 .449-1 1v1H2v2h2v15c0 1.645 1.355 3 3 3h12c1.645 0 3-1.355 3-3V8h2V6h-1V5c0-.551-.449-1-1-1h-3.969v-.438c0-1.966-1.573-3.593-3.531-3.593h-3zm0 2.062h3c.804 0 1.469.656 1.469 1.531V4H10.03v-.438c0-.875.665-1.53 1.469-1.53zM6 8h5.125c.124.013.247.031.375.031h3c.128 0 .25-.018.375-.031H20v15c0 .563-.437 1-1 1H7c-.563 0-1-.437-1-1V8zm2 2v12h2V10H8zm4 0v12h2V10h-2zm4 0v12h2V10h-2z"/>
-                                </svg>
-                            </button>
+                            <EditButton userId={user.id} handleUser={handleEditUser} />
+                            <DeleteButton userId={user.id} handleUser={handleDeleteUser} />
                         </td>
                     </tr>
                 ))}
@@ -120,6 +125,13 @@ export function UserTable() {
             </table>
             <button className={`${styles.deleteSelected} ${styles.delete}`} onClick={handleDeleteSelectedUsers}>Eliminar seleccionados</button>
             <p>Total de usuarios: {users.length}</p>
+            {isModalOpen && (
+                <ConfirmModal
+                    message="¿Estás seguro de que quieres eliminar a este usuario?"
+                    onConfirm={handleConfirmDelete}
+                    onClose={() => setModalOpen(false)}
+                />
+            )}
         </div>
     );
 }

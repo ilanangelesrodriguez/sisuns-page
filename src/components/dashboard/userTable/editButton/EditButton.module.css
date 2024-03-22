@@ -1,0 +1,14 @@
+.edit {
+    background-color: #2BB8AD;
+}
+.svgButton {
+    padding: 0.5em;
+}
+.svgButton:hover {
+    border: none;
+}
+.svgIcon {
+    display: flex;
+    width: 1.8em;
+    height: 1.8em;
+}

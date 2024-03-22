@@ -4,6 +4,9 @@
     flex-wrap: wrap;
     gap: 0.6em;
 }
+.checkbox {
+    cursor: pointer;
+}
 .edit {
     background-color: #2BB8AD;
 }
