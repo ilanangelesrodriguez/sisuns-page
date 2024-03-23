@@ -45,13 +45,13 @@ export function LoginPage() {
                             <p>Introduce tus credenciales</p>
                         </div>
 
-                        <label htmlFor="email">Correo</label>
+                        <label className={styles.loginLabel} htmlFor="email">Correo</label>
                         <input className={`${styles.loginInput} ${styles.loginInputDiv}`}
                                required={true} type="text" id="email" name="Usuario" value={email}
                                onChange={(e) => setEmail(e.target.value)}
                         />
 
-                        <label htmlFor="password">Contraseña</label>
+                        <label className={styles.loginLabel} htmlFor="password">Contraseña</label>
                         <div className={styles.loginPassword}>
                             <input className={`${styles.loginInput} ${styles.loginInputPassword}`}
                                    required={true} type={showPassword ? "text" : "password"} id="password"

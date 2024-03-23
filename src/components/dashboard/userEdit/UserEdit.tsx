@@ -6,6 +6,7 @@ import { Loader } from '../../loader/Loader';
 import styles from "./UserEdit.module.css";
 import { getUsers } from '../../../services/userService';
 import {useAuth} from "../../../hooks/useAuth";
+import {ShowPassword} from "../../../pages/login/showPassword/ShowPassword";
 
 export function UserEdit() {
     const userId = Number(useParams().userId);
@@ -81,9 +82,8 @@ export function UserEdit() {
                 <div className={styles.formLabelPassword}>
                     <input type={showPassword ? "text" : "password"} name="contrasena" className={styles.formInput}
                            value={updatedUser.contrasena} onChange={handleChange}/>
-                    <button className={styles.formLabelPasswordButton} type="button" onClick={toggleShowPassword}>
-                        {showPassword ? 'Ocultar' : 'Mostrar'}
-                    </button>
+
+                    <ShowPassword showPassword={showPassword} toggleShowPassword={toggleShowPassword} />
                 </div>
             </label>
             <button className={styles.formButtom} type="submit">Actualizar</button>
