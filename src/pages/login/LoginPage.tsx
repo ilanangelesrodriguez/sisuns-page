@@ -7,6 +7,7 @@ import { NetworkError } from '../error/NetworkError';
 import {ERRORS} from "../../models/ConstantsErrors";
 import {Loader} from "../../components/loader/Loader";
 import {ShowPassword} from "./showPassword/ShowPassword";
+import loginImage from '../../assets/login.svg';
 
 export function LoginPage() {
     const navigate = useNavigate();
@@ -35,7 +36,7 @@ export function LoginPage() {
             ) : (
             <div className={styles.loginFormPage}>
                 <div className={styles.loginFormDiv}>
-                    <img className={styles.loginImage} src="/src/assets/login.svg" alt="Login" />
+                    <img className={styles.loginImage} src={loginImage} alt="Login" />
                 </div>
                 <div className={styles.loginFormDiv}>
                     <form className={styles.loginForm} onSubmit={handleSubmit}>
