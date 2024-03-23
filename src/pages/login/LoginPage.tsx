@@ -61,7 +61,7 @@ export function LoginPage() {
                             <ShowPassword showPassword={showPassword} toggleShowPassword={toggleShowPassword}/>
                         </div>
 
-                        {error && <p>{error}</p>}
+                        {error && <p className={styles.loginError}>{error}</p>}
                         <button className={styles.button} type="submit" disabled={loading}>
                             Ingresar
                         </button>
