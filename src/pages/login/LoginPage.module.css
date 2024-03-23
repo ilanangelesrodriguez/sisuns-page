@@ -3,6 +3,15 @@
     margin: 3em auto;
     padding: 2em;
     box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    backdrop-filter: blur(18px) saturate(132%);
+    -webkit-backdrop-filter: blur(18px) saturate(132%);
+    background-color: rgba(255, 255, 255, 0.24);
 }
 
 .loginForm {
@@ -12,7 +21,16 @@
     align-items: center;
     gap: 0.7em;
 }
-
+.loginFormHead {
+    margin-bottom: 0.2em;
+}
+.loginFormHead p {
+    font-size: small;
+}
+.loginImage {
+    width: 25em;
+    display: flex;
+}
 .loginInput {
     color: black;
     padding: 10px;
@@ -26,9 +44,27 @@
 }
 
 .loginInput:focus {
-    background: #e8e8e8;
+    background: rgba(232, 232, 232, 0);
     box-shadow: inset 5px 5px 17px #c8c8c8,
     inset -5px -5px 17px #ffffff;
+}
+
+.loginPassword {
+    display: flex;
+    justify-content: center;
+}
+
+.loginInputDiv,
+.loginPassword {
+    width: 16em;
+}
+
+.loginInputPassword {
+    width: 13.6em;
+}
+
+.loginTitle {
+    font-size: x-large;
 }
 
 .button {
@@ -63,5 +99,19 @@
 
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@media (max-width: 968px) {
+    .loginFormPage {
+        width: 80vw;
+    }
+}
+@media (max-width: 768px) {
+    .loginFormPage {
+        width: 65vw;
+    }
+    .loginImage {
+        display: none;
     }
 }

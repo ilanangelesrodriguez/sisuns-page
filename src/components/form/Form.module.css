@@ -140,6 +140,37 @@
     box-shadow: 0.05em 0.05em #5CA987;
 }
 
+.formMessage {
+    --font-color: #323232;
+    --bg-color: rgba(224, 224, 224, 0.4);
+    margin: 1em 2em;
+    padding: 1em 2em;
+    border-radius: 20px;
+    background: var(--bg-color);
+    box-shadow: -3px 3px 6px rgba(90, 90, 90, 0.52),
+    3px -3px 6px rgba(255, 255, 255, 0.56);
+    display: flex;
+    flex-direction: column;
+    transition: .4s;
+    position: relative;
+}
+
+.formMessage:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px 2px #5a5a5a;
+}
+.formMessageTitle {
+    margin: 0;
+}
+.formMessageButton {
+    margin: auto;
+    background: #2f87b7;
+}
+.formMessageButton:hover {
+    outline: none;
+    border: none;
+}
+
 @media (max-width: 768px) {
     .form {
         width: 100%;

@@ -58,7 +58,7 @@
 }
 
 .serviceItem:hover {
-    box-shadow: 35px 35px 68px 0 rgba(43, 184, 173, 15%);
+    box-shadow: 35px 35px 68px 0 rgba(43, 184, 173, 0.46);
 }
 
 .serviceItem:active {

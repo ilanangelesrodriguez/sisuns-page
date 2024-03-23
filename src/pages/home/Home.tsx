@@ -12,7 +12,7 @@ export function Home() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoaded(true);
-        }, 1000);
+        }, 1200);
         return () => clearTimeout(timer);
 
     }, [isLoaded]);
