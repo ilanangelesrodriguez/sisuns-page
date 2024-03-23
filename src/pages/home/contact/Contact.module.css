@@ -1,3 +1,13 @@
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 80vh;
+    gap: 5em;
+    margin: 2em 0;
+}
 .contactIframe {
     border-radius: 20px;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.068);
@@ -13,6 +23,9 @@
 }
 
 @media (max-width: 768px) {
+    .contact {
+        gap: 2em;
+    }
     .contactIframe {
         width: 85vw;
         height: 20em;

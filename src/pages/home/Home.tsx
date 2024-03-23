@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import {Loader} from "../../components/loader/Loader";
 import {About} from "./about/About";
 import {Services} from "./services/Services";
-import {Contact} from "./contact/Contact";
 import styles from "./Home.module.css";
 import {Main} from "./main/Main";
 
@@ -23,7 +22,6 @@ export function Home() {
                 <Main />
                 <About />
                 <Services />
-                <Contact />
             </main>
         ) : (
             <Loader />

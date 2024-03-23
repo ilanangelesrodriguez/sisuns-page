@@ -3,7 +3,7 @@ import {Form} from "../../../components/form/Form";
 
 export function Contact() {
     return (
-        <section className="contact">
+        <section className={styles.contact}>
             <Form/>
             <iframe
                 className={styles.contactIframe}

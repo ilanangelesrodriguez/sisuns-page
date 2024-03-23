@@ -1,7 +1,14 @@
 import styles from "./Main.module.css";
 import research from "../../../assets/research.png";
+import {useNavigate} from "react-router-dom";
 
 export function Main() {
+    const navigate = useNavigate();
+
+    const handleContact = () => {
+        navigate('/contact');
+    }
+
     return (
         <section className={styles.homeSection}>
             <div className={styles.homeSectionDescription}>
@@ -15,7 +22,7 @@ export function Main() {
                     Únete a nuestro semillero de ingeniería de sistemas y sé parte de un equipo apasionado por crear
                     soluciones innovadoras para los desafíos del mundo actual.
                 </p>
-                <button className={styles.contactButton}>
+                <button className={styles.contactButton} onClick={handleContact}>
                     Únete Ahora
                     <div className={styles.iconButton}>
                         <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

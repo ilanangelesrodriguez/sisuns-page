@@ -13,7 +13,6 @@
     -webkit-backdrop-filter: blur(18px) saturate(132%);
     background-color: rgba(255, 255, 255, 0.24);
 }
-
 .loginForm {
     padding: 2em;
     display: flex;
@@ -42,31 +41,30 @@
     border-radius: 10px;
     transition: all .5s;
 }
-
 .loginInput:focus {
     background: rgba(232, 232, 232, 0);
     box-shadow: inset 5px 5px 17px #c8c8c8,
     inset -5px -5px 17px #ffffff;
 }
-
 .loginPassword {
     display: flex;
     justify-content: center;
 }
-
 .loginInputDiv,
 .loginPassword {
     width: 16em;
 }
-
 .loginInputPassword {
     width: 13.6em;
 }
-
 .loginTitle {
     font-size: x-large;
 }
-
+.loginError {
+    color: red;
+    font-weight: bold;
+    font-size: small;
+}
 .button {
     background: linear-gradient(-45deg, #2f87b7, #5ca99d, #2FB7AB,#5CA987);
     background-size: 800% 400%;
@@ -77,12 +75,10 @@
     transition: all .5s ease-in-out;
     animation: gradient 10s infinite cubic-bezier(.62, .28, .23, .99) both;
 }
-
 .button:hover {
     animation: gradient 3s infinite;
     transform: scale(1.05);
 }
-
 .button:active {
     animation: gradient 3s infinite;
     transform: scale(0.8);
