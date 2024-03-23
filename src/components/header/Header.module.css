@@ -39,13 +39,15 @@ header {
 
 .linkItem {
     /* Estilo para el modo claro */
-    color: #000;
+
+    color: #fff;
+
     text-decoration: none;
 }
 
 .linkItemDark {
     /* Estilo para el modo oscuro */
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 

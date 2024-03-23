@@ -52,9 +52,10 @@ export function Form() {
                     </div>
                 </form>
             ) : (
-                <div>
+                <div className={styles.formMessage}>
+                    <h3 className={styles.formMessageTitle}>Mensaje</h3>
                     <p>Hola {firstName}, esta sección se encuentra en desarrollo</p>
-                    <button onClick={handleBack}>Volver al formulario</button>
+                    <button className={styles.formMessageButton} onClick={handleBack}>Volver al formulario</button>
                 </div>
             )}
         </>
