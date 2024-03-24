@@ -1,5 +1,8 @@
 import styles from './About.module.css';
 import dataResearch from '../../../assets/data-research.svg';
+import buildProjects from '../../../assets/build-projects.svg';
+import tech from '../../../assets/tech.svg';
+import projects from '../../../assets/projects.svg';
 
 export function About() {
     return (
@@ -45,8 +48,7 @@ export function About() {
                     </div>
 
                     <div>
-                        <img src={dataResearch}
-                             alt="Data Research" className={styles.imgAbout}/>
+                        <img src={dataResearch} alt="Data Research" className={styles.imgAbout}/>
                     </div>
                 </div>
 
@@ -75,17 +77,35 @@ export function About() {
             </section>
 
             <section className={styles.sectionHighlight}>
-                <h3 className={styles.highlightTitle}>Proyectos Innovadores</h3>
-                <p>Trabajamos en proyectos innovadores, colaborativos y multidisciplinarios que buscan resolver
-                    problemas y generar impacto en la sociedad.</p>
 
-                <h3 className={styles.highlightTitle}>Creemos en la Tecnología</h3>
-                <p>Creemos en el poder transformador de la tecnología y nos esforzamos por utilizar nuestros
-                    conocimientos y habilidades para crear un futuro mejor.</p>
+                <div className={styles.sectionHighlightDiv}>
+                    <img src={projects} alt="Proyectos Innovadores" className={styles.highlightImg}/>
+                    <h3 className={styles.highlightTitle}>Proyectos Innovadores</h3>
+                    <p>
+                        Trabajamos en proyectos innovadores, colaborativos y multidisciplinarios que buscan resolver
+                        problemas y generar impacto en la sociedad.
+                    </p>
+                </div>
 
-                <h3 className={styles.highlightTitle}>Construyendo un Mundo Mejor</h3>
-                <p>Nuestro equipo está dedicado a construir un mundo más innovador, inclusivo y sostenible a través de
-                    la ingeniería y la investigación.</p>
+                <div className={styles.sectionHighlightDiv}>
+                    <img src={tech} alt="Creemos en la Tecnología" className={styles.highlightImg}/>
+                    <h3 className={styles.highlightTitle}>Creemos en la Tecnología</h3>
+                    <p>
+                        Creemos en el poder transformador de la tecnología y nos esforzamos por utilizar nuestros
+                        conocimientos y habilidades para crear un futuro mejor.
+                    </p>
+                </div>
+
+                <div className={styles.sectionHighlightDiv}>
+                    <img src={buildProjects} alt="Construyendo un Mundo Mejor" className={styles.highlightImg}/>
+                    <h3 className={styles.highlightTitle}>Construyendo un Mundo Mejor</h3>
+                    <p>
+                        Nuestro equipo está dedicado a construir un mundo más innovador, inclusivo y sostenible a través
+                        de
+                        la ingeniería y la investigación.
+                    </p>
+                </div>
+
             </section>
         </div>
     );
