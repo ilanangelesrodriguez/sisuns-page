@@ -6,6 +6,8 @@ import {Credit} from "./credit/Credit";
 export function Footer() {
   return (
       <>
+          <div className={styles.waveContainer}></div>
+
           <footer className={styles.footer}>
               <div className={styles.footerContainer}>
                   <div className={styles.footerRow}>
@@ -29,7 +31,7 @@ export function Footer() {
                           <p>Av. Pacífico 508 - Nuevo Chimbote</p>
                           <p>Central Telefónica.: (51)-43-310445 Chimbote - Ancash - Perú.</p>
 
-                          <SocialButtons />
+                          <SocialButtons/>
 
                       </div>
                       <div className={styles.footerCol}>
@@ -57,7 +59,7 @@ export function Footer() {
                       </div>
                   </div>
               </div>
-              <Credit />
+              <Credit/>
           </footer>
       </>
   )

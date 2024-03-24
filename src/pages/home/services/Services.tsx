@@ -1,4 +1,5 @@
 import styles from './Services.module.css';
+import commitment from '../../../assets/commitment.svg';
 
 export function Services() {
     return (
@@ -25,13 +26,19 @@ export function Services() {
                     </li>
                 </ul>
             </div>
-            <div className={styles.cardSection}>
-                <h3 className={styles.sectionTitle}>Nuestro Compromiso</h3>
-                <p>
-                    Nuestros servicios están diseñados para apoyar el crecimiento y la formación de profesionales en el
-                    campo de la ingeniería de sistemas e informática. Buscamos promover la investigación, el desarrollo
-                    tecnológico y la innovación en nuestra comunidad universitaria y más allá.
-                </p>
+            <div className={`${styles.cardSection} ${styles.cardSectionCommit}`}>
+                <div className={styles.cardImageDiv} >
+                    <img className={styles.cardImage} src={commitment} alt="Servicios"/>
+                </div>
+                <div className={styles.cardSectionCommitDiv}>
+                    <h3 className={styles.sectionTitle}>Nuestro Compromiso</h3>
+                    <p>
+                        Nuestros servicios están diseñados para apoyar el crecimiento y la formación de profesionales en
+                        el campo de la ingeniería de sistemas e informática. Buscamos promover la investigación, el
+                        desarrollo tecnológico y la innovación en nuestra comunidad universitaria y más allá.
+                    </p>
+                </div>
+
             </div>
         </div>
     );
