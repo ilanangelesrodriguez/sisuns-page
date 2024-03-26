@@ -19,5 +19,5 @@
     padding-left: 1em;
     padding-right: 1em;
     gap: 1em;
-    margin: auto;
+    margin: auto auto 0;
 }

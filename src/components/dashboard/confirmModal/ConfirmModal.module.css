@@ -32,9 +32,15 @@
 
 .modalButtons {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: row !important;
+    justify-content: center !important;
     flex-wrap: wrap;
     gap: 0.7em;
-    margin: auto;
+    margin: auto !important;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        width: 80vw;
+    }
 }

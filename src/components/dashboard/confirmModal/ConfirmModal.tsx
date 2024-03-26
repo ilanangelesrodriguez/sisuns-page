@@ -14,8 +14,8 @@ export function ConfirmModal({ message, onConfirm, onClose }: ConfirmModalProps)
             <div className={`${styles.modal} ${isEnlarged ? styles.enlarged : ''}`}>
                 <p>{message}</p>
                 <div className={styles.modalButtons}>
-                    <button onClick={onConfirm}>Confirmar</button>
-                    <button onClick={onClose}>Cancelar</button>
+                    <button className={styles.modalButton} onClick={onConfirm}>Confirmar</button>
+                    <button className={styles.modalButton} onClick={onClose}>Cancelar</button>
                 </div>
             </div>
         </div>
