@@ -49,10 +49,16 @@
     padding-right: 1em;
     gap: 1em;
 }
-
+.tableTd {
+    text-align: start;
+    margin-left: 2em;
+}
 
 @media (max-width: 768px) {
     .disabled {
         display: none;
+    }
+    .tableTd {
+        margin-left: 0.5em;
     }
 }

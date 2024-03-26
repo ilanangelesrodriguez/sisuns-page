@@ -1,18 +1,12 @@
-import {useAuth} from "../../../hooks/useAuth";
-import {useNavigate} from "react-router-dom";
 import styles from './LogoutButton.module.css';
 
-export function LogoutButton() {
-    const { logout } = useAuth();
-    const navigate = useNavigate();
+interface LogoutButtonProps {
+    onLogout: () => void;
+}
 
-    const handleLogout = () => {
-        logout();
-        navigate('/login');
-    };
-
+export function LogoutButton({ onLogout }: LogoutButtonProps) {
     return (
-        <button className={`${styles.svgButton} ${styles.signOut}`} onClick={handleLogout}>
+        <button className={`${styles.svgButton} ${styles.signOut}`} onClick={onLogout}>
             <svg className={styles.svgIcon} xmlns="http://www.w3.org/2000/svg" width="200"
                  height="200" viewBox="0 0 24 24">
                 <g fill="none">

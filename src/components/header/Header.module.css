@@ -1,8 +1,6 @@
 header {
-    /*background-color: #333;*/
     padding: 10px 0;
 }
-
 .headerDiv {
     display: flex;
     justify-content: center;
@@ -13,18 +11,18 @@ header {
 .headerDiv div {
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
 }
-
 .headerLogo {
     width: 2em;
 }
-
 .headerLogoH1 {
     color: #5CA987;
     margin: 0;
     font-size: x-large;
 }
-
 .headerLogoLink {
     display: flex;
     flex-direction: row;
@@ -32,29 +30,20 @@ header {
     gap: 1em;
     align-items: center;
 }
-
 .headerLogoSpan {
     color: #61635E;
 }
-
 .headerItem {
     color: #000;
 }
-
 .linkItem {
-    /* Estilo para el modo claro */
-
     color: #fff;
-
     text-decoration: none;
 }
-
 .linkItemDark {
-    /* Estilo para el modo oscuro */
     color: #000;
     text-decoration: none;
 }
-
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -66,19 +55,15 @@ nav ul {
     align-items: center;
     margin: 0 5em;
 }
-
 nav ul li {
     display: inline;
 }
-
 nav ul li a {
     text-decoration: none;
 }
-
 nav ul li a:hover {
     color: #5CA987;
 }
-
 .button {
     margin: auto;
     padding: 0;
@@ -97,7 +82,6 @@ nav ul li a:hover {
     border-radius: 6px;
     position: relative;
 }
-
 .button::before {
     position: absolute;
     content: "";
@@ -107,23 +91,19 @@ nav ul li a:hover {
     z-index: -1;
     border-radius: 50%;
 }
-
 .button:hover {
     color: white;
     border: 2px solid #5CA987;
 }
-
 .button:before {
     top: 100%;
     left: 100%;
     transition: 0.3s all;
 }
-
 .button:hover::before {
     top: -30px;
     left: -30px;
 }
-
 
 @media (max-width: 768px) {
     nav ul {
