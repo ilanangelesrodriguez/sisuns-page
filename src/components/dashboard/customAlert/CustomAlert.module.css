@@ -1,4 +1,4 @@
-.backdrop {
+.background {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,7 +8,7 @@
     z-index: 1000;
     pointer-events: auto;
 }
-.modal {
+.alert {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -22,7 +22,7 @@
     padding: 1.5em;
     border-radius: 1em;
 }
-.modal.enlarged {
+.alert.enlarged {
     transform: translate(-50%, -50%) scale(1.05);
 }
 .modalButtons {
@@ -33,25 +33,19 @@
     gap: 0.7em;
     margin: auto !important;
 }
-.modalButton:hover, .modalButton:focus {
+.alertButton:hover {
     outline: white;
     border: none;
 }
-.modalButtonConfirm {
+.alertButton {
     background-color: #5CA987;
 }
-.modalButtonConfirm:hover {
+.alertButton:hover {
     background-color: #2e8b57;
-}
-.modalButtonDelete {
-    background-color: #b62937;
-}
-.modalButtonDelete:hover {
-    background-color: #b40816;
 }
 
 @media (max-width: 768px) {
-    .modal {
-        width: 80vw;
+    .alert {
+        width: 60vw;
     }
 }

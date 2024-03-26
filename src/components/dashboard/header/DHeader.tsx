@@ -1,13 +1,13 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import styles from './DHeader.module.css';
-import {IHeaderProps} from "../../../models/IHeaderProps";
-import {Header} from "../../header/Header";
+import {IHeaderProps} from "../../../models/interfaces";
+import {Header} from "../../home/header/Header";
 import {useAuth} from "../../../hooks/useAuth";
 import {LogoutButton} from "../logoutButton/LogoutButton";
 import {OPTIONS} from "./Options";
 import {ROLES} from "../../../models/Roles";
-import {RUTAS_DASHBOARD} from "../../../models/Rutas";
+import {RUTAS, RUTAS_DASHBOARD} from "../../../models/routes";
 import {Sidebar} from "primereact/sidebar";
 import {PopUpUser} from "../popupUser/PopUpUser";
 import {ListBox, ListBoxChangeEvent} from "primereact/listbox";
@@ -42,7 +42,7 @@ export function DHeader({children, darkMode, toggleDarkMode, showFullHeader}: IH
 
     const handleLogout = () => {
         logout();
-        navigate('/login');
+        navigate(`/${RUTAS.LOGIN}`);
     };
 
     const handleLogoutConfirmation = () => {
@@ -60,7 +60,7 @@ export function DHeader({children, darkMode, toggleDarkMode, showFullHeader}: IH
                                 setSelectedOption(RUTAS_DASHBOARD.HOME);
                                 navigate(RUTAS_DASHBOARD.HOME);
                             }}>
-                                <p>{user?.nombre}</p>
+                                <p className={styles.sidebarDivUser}>{user?.nombre}</p>
                                 <p className={styles.sidebarUserEmail}>{user?.correo}</p>
                             </div>
                             <div className="flex justify-content-center">

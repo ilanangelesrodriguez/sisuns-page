@@ -1,0 +1,49 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 18em;
+    margin: auto;
+}
+.formButtom {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.formTitle {
+    font-size: x-large;
+    margin-bottom: 1em;
+}
+.formInput {
+    color: black;
+    width: 20em;
+    padding: 10px;
+    outline: none;
+    background: #e8e8e8;
+    box-shadow: 2px 2px 3px #c8c8c8,
+    -1px -1px 3px #ffffff;
+    border: none;
+    border-radius: 10px;
+    transition: all .5s;
+}
+.formInput:focus {
+    background: #e8e8e8;
+    box-shadow: inset 5px 5px 17px #c8c8c8,
+    inset -5px -5px 17px #ffffff;
+}
+.formLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 0.8em;
+}
+.formLabelPassword {
+    width: 20em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.formLabelPassword {
+    width: calc(100% - 0.1rem);
+}
+.formLabelPasswordButton {
+    font-size: small;
+}

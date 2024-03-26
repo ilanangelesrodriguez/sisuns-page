@@ -30,6 +30,10 @@
     align-items: flex-start;
     row-gap: 2em;
 }
+.sidebarDivUser {
+    font-size: x-large;
+    font-weight: bold;
+}
 .sidebarOptions {
     row-gap: 1em;
 }

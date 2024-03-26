@@ -1,6 +1,6 @@
 import './Footer.module.css';
 import styles from './Footer.module.css';
-import {SocialButtons} from "../socialButtons/SocialButtons";
+import {SocialButtons} from "../../socialButtons/SocialButtons";
 import {Credit} from "./credit/Credit";
 
 export function Footer() {

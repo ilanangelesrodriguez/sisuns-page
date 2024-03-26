@@ -47,3 +47,6 @@
 .formLabelPasswordButton {
     font-size: small;
 }
+.formLabelSelect {
+    margin-bottom: 2em;
+}

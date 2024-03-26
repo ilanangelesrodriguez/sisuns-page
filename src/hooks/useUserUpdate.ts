@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { IUser } from '../models/IUser';
+import { IUser } from '../models/interfaces';
 import { updateUser } from '../services/userService';
 
 export function useUserUpdate(userId: number) {

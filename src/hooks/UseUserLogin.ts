@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from './useAuth';
-import { IUser as Usuario } from '../models/IUser';
+import { IUser as Usuario } from '../models/interfaces/IUser';
 import {ERRORS} from "../models/ConstantsErrors";
 import { getUsers } from '../services/userService';
 

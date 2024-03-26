@@ -8,6 +8,7 @@ import {ERRORS} from "../../models/ConstantsErrors";
 import {Loader} from "../../components/loader/Loader";
 import {ShowPassword} from "./showPassword/ShowPassword";
 import loginImage from '../../assets/login.svg';
+import {RUTAS} from "../../models/routes";
 
 export function LoginPage() {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ export function LoginPage() {
 
     useEffect(() => {
         if (isAuthenticated) {
-            navigate('/dashboard');
+            navigate(`/${RUTAS.DASHBOARD}`);
         }
     }, [isAuthenticated, navigate]);
 

@@ -1,12 +1,13 @@
 import styles from "./Main.module.css";
 import research from "../../../assets/research.png";
 import {useNavigate} from "react-router-dom";
+import {RUTAS} from "../../../models/routes";
 
 export function Main() {
     const navigate = useNavigate();
 
     const handleContact = () => {
-        navigate('/contact');
+        navigate(`/${RUTAS.CONTACT}`);
     }
 
     return (

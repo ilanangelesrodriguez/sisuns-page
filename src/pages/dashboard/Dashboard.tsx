@@ -4,11 +4,13 @@ import styles from './Dashboard.module.css';
 import {useAuth} from "../../hooks/useAuth";
 import {DFooter} from "../../components/dashboard/footer/DFooter";
 import {DHeader} from "../../components/dashboard/header/DHeader";
-import {IHeaderProps} from "../../models/IHeaderProps";
-import {UserEdit} from "../../components/dashboard/userEdit/UserEdit";
+import {IHeaderProps} from "../../models/interfaces";
+import {UserEdit} from "./users/userEdit/UserEdit";
 import {NotFound} from "../error/NotFound";
 import {Main} from "./main/Main";
-import {UserTable} from "../../components/dashboard/userTable/UserTable";
+import {UserTable} from "./users/userTable/UserTable";
+import {UserCreate} from "./users/userCreate/UserCreate";
+import {RUTAS, RUTAS_DASHBOARD} from "../../models/routes";
 
 export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderProps) {
     const navigate = useNavigate();
@@ -17,7 +19,7 @@ export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderPr
     useEffect(() => {
         const handleStorageChange = (event: StorageEvent) => {
             if (event.key === 'isAuthenticated' && event.newValue === 'false') {
-                navigate('/login');
+                navigate(`/${RUTAS.LOGIN}`);
             }
         };
         window.addEventListener('storage', handleStorageChange);
@@ -29,7 +31,7 @@ export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderPr
 
     useEffect(() => {
         if (!isAuthenticated) {
-            navigate('/login');
+            navigate(`/${RUTAS.LOGIN}`);
         }
     }, [isAuthenticated, navigate]);
 
@@ -39,9 +41,10 @@ export function Dashboard({ darkMode, toggleDarkMode, showFullHeader}: IHeaderPr
             <div className={styles.dashboard}>
                 <Routes>
                     <Route path="/" element={<Main user={user} />} />
-                    <Route path="/configuration" element={<UserEdit />} />
-                    <Route path="/gestion-usuarios" element={<UserTable />} />
-                    <Route path="/gestion-usuarios/edit-user/:userId" element={<UserEdit />} />
+                    <Route path={`/${RUTAS_DASHBOARD.CONFIGURATION}`} element={<UserEdit />} />
+                    <Route path={`/${RUTAS_DASHBOARD.GESTION_USUARIOS}`} element={<UserTable />} />
+                    <Route path={`/${RUTAS_DASHBOARD.GESTION_USUARIOS}/edit-user/:userId`} element={<UserEdit />} />
+                    <Route path={`/${RUTAS_DASHBOARD.GESTION_USUARIOS}/create-user`} element={<UserCreate />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>

@@ -9,6 +9,7 @@ import {AuthProvider} from "./pages/login/auth/AuthContext";
 import {Home} from "./pages/home/Home";
 import {Contact} from "./pages/home/contact/Contact";
 import {About} from "./pages/home/about/About";
+import {RUTAS} from "./models/routes";
 
 function App() {
     const [darkMode, setDarkMode] = useState(false);
@@ -30,11 +31,11 @@ function App() {
         <AuthProvider>
             <div className={darkMode ? 'light-mode' : 'dark-mode'}>
                 <Routes>
-                    {renderLayout("/", <Home />)}
-                    {renderLayout("/about", <About />)}
-                    {renderLayout("/contact", <Contact />)}
-                    {renderLayout("/login", <LoginPage />)}
-                    {renderLayout("/dashboard/*", <Dashboard darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={false} />, false, false)}
+                    {renderLayout(`/${RUTAS.HOME}`, <Home />)}
+                    {renderLayout(`/${RUTAS.ABOUT}`, <About />)}
+                    {renderLayout(`/${RUTAS.CONTACT}`, <Contact />)}
+                    {renderLayout(`/${RUTAS.LOGIN}`, <LoginPage />)}
+                    {renderLayout(`/${RUTAS.DASHBOARD}/*`, <Dashboard darkMode={darkMode} toggleDarkMode={toggleDarkMode} showFullHeader={false} />, false, false)}
                     {renderLayout("*", <NotFound />)}
                 </Routes>
             </div>
