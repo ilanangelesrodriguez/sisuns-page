@@ -1,8 +1,7 @@
 import React, { createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {IUser} from "../../../models/IUser";
-import {IAuthContext} from "../../../models/IAuthContext";
-
+import {IUser, IAuthContext} from "../../../models/interfaces";
+import {RUTAS} from "../../../models/routes";
 
 export const AuthContext = createContext<IAuthContext | undefined>(undefined);
 
@@ -21,7 +20,7 @@ export function AuthProvider({children}: {children: React.ReactNode}) {
         localStorage.setItem('user', JSON.stringify(user)); // Guardar la información del usuario
         setIsAuthenticated(true);
         setUser(user);
-        navigate('/dashboard');
+        navigate(`/${RUTAS.DASHBOARD}`);
     };
 
     const logout = () => {

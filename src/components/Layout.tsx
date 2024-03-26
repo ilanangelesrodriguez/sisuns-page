@@ -1,6 +1,6 @@
-import {Header} from "./header/Header";
-import {Footer} from "./footer/Footer";
-import {IHeaderProps} from "../models/IHeaderProps";
+import {Header} from "./home/header/Header";
+import {Footer} from "./home/footer/Footer";
+import {IHeaderProps} from "../models/interfaces";
 
 export function Layout({ children, darkMode, toggleDarkMode, showFullHeader, showFooter, showHeader }: IHeaderProps) {
     return (

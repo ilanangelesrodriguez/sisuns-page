@@ -1,8 +1,9 @@
 import styles from "../UserTable.module.css";
+import {CreateButtonProps} from "./CreateButtonProps";
 
-export function AddButton() {
+export function CreateButton({ handleUser }: CreateButtonProps) {
     return (
-        <button className={`${styles.svgButton} ${styles.add}`}>
+        <button className={`${styles.svgButton} ${styles.add}`} onClick={handleUser}>
             <svg className={styles.svgIcon} xmlns="http://www.w3.org/2000/svg" width="200" height="200"
                  viewBox="0 0 14 14">
                 <path fill="currentColor" fillRule="evenodd"

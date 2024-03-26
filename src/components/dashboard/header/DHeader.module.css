@@ -4,7 +4,7 @@
     box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
     0.3em 0.3em 1em rgba(0,0,0,0.3);
     gap: 1em;
-    padding: 1.5em 1.5em 1.5em 2em;
+    padding: 3em 1.5em 1.5em 2em;
 }
 .sidebar p {
     margin: 0;
@@ -22,13 +22,17 @@
 .sidebarContent {
     display: flex;
     flex-direction: column;
-    height: 85vh;
+    height: 87vh;
 }
 .sidebarDiv {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     row-gap: 2em;
+}
+.sidebarDivUser {
+    font-size: x-large;
+    font-weight: bold;
 }
 .sidebarOptions {
     row-gap: 1em;
@@ -40,4 +44,16 @@
 .selected {
     color: gray;
     font-weight: bolder;
+}
+
+.sidebar > div:first-child {
+    display: none;
+}
+
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70vw;
+    }
 }
