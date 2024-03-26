@@ -10,12 +10,13 @@ import { ShowPassword } from "../../../login/showPassword/ShowPassword";
 import { ROLES } from "../../../../models/Roles";
 
 export function UserEdit() {
-    const userId = Number(useParams().userId);
-    const { handleUpdate, loading, error } = useUserUpdate(userId);
+    const { user: authenticatedUser } = useAuth();
+    const params = useParams();
+    const userId = params.userId ? Number(params.userId) : authenticatedUser ? authenticatedUser.id : null;
+    const { handleUpdate, loading, error } = useUserUpdate(Number(userId));
     const [updatedUser, setUpdatedUser] = useState<IUser | null>(null);
     const [roles, setRoles] = useState<IRol[]>([]);
     const [showPassword, setShowPassword] = useState(false);
-    const { user: authenticatedUser } = useAuth();
 
     useEffect(() => {
         const fetchUserAndRoles = async () => {

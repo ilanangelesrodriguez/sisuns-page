@@ -2,7 +2,7 @@ h1 {
     margin: 0;
 }
 .dashboard {
-    min-height: 85vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
