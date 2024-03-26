@@ -10,6 +10,10 @@ header {
     flex-wrap: wrap;
     column-gap: 2em;
 }
+.headerDiv div {
+    margin: 0;
+    display: flex;
+}
 
 .headerLogo {
     width: 2em;
