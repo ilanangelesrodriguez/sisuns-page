@@ -7,51 +7,7 @@
     background-color: transparent;
     font-weight: bolder;
 }
-
 .dashboardInputSearch:focus {
     border-color: #007bff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-.userCards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1em;
-    margin: 1.5em 0;
-}
-
-.userCard {
-    background: #5CA987;
-    width: 20em;
-    padding: 15px 10px;
-    border: 4px solid #7cdacc;
-    box-shadow: 0 6px 10px rgba(207, 212, 222, 0.5);
-    border-radius: 10px;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    transition: all 0.3s ease;
-}
-.userCard:hover {
-    transform: translateY(-5px);
-    cursor: pointer;
-}
-.userCardH2 {
-    font-size: medium;
-}
-.userCardP {
-    font-size: small;
-}
-
-@media (max-width: 968px) {
-    .userCard {
-        width: 20em;
-    }
-}
-
-@media (max-width: 768px) {
-    .userCard {
-        width: 15em;
-    }
 }

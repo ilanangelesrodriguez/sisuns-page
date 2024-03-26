@@ -22,7 +22,7 @@
 .sidebarContent {
     display: flex;
     flex-direction: column;
-    height: 87vh;
+    height: 85vh;
 }
 .sidebarDiv {
     display: flex;
